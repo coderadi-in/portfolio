@@ -1,0 +1,253 @@
+/* ================================================== */
+/* BASIC */
+/* ================================================== */
+
+.min-h-screen .section { min-height: 100vh; }
+
+
+/* ================================================== */
+/* KEYFRAMES */
+/* ================================================== */
+
+@keyframes visionVisual {
+    0% { stroke-dashoffset: 600; }
+    50% { stroke-dashoffset: 0; }
+    100% { stroke-dashoffset: -600; }
+}
+
+/* ================================================== */
+/* LOADER */
+/* ================================================== */
+
+.loader {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    background: #0a0a0a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* Smooth fade-out for Frame 5 */
+    opacity: 1;
+    transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    pointer-events: all;
+}
+
+/* When the fade-out class is added, the loader fades away */
+.loader.fade-out {
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* Canvas fills the loader */
+.loader canvas {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+/* ---------- REDUCED MOTION ---------- */
+@media (prefers-reduced-motion: reduce) {
+    .loader {
+        opacity: 0 !important;
+        pointer-events: none !important;
+        transition: none !important;
+    }
+
+    .main {
+        opacity: 1 !important;
+        pointer-events: all !important;
+        transition: none !important;
+    }
+}
+
+/* ================================================== */
+/* HERO */
+/* ================================================== */
+
+.hero {
+    height: 100dvh;
+    margin-top: -122px;
+    padding-bottom: 96px;
+
+    background-image: url('/assets/images/desktop/hero.webp');
+    background-size: cover;
+    background-position: center;
+}
+
+.hero .section > * {
+    max-width: 568px;
+    text-wrap: balance;
+}
+
+.hero .cta {
+    position: relative;
+    z-index: 0;
+    background-color: transparent;
+    border: 2px solid var(--color-accent-main);
+    backdrop-filter: blur(4px);
+}
+
+.hero .cta::before {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: var(--color-accent-main);
+    border-radius: 50px;
+    clip-path: circle(20% at 0% 100%);
+    transition: all 1s;
+}
+
+.hero .cta:hover {color: var(--color-text-main);}
+.hero .cta:hover::before {clip-path: circle(150% at 100% 100%);}
+
+/* ================================================== */
+/* VISION */
+/* ================================================== */
+
+.vision .body .text-content {
+    max-width: 568px;
+    text-wrap: balance;
+}
+
+.vision .body .visual svg {
+    width: min(512px, 100%);
+    height: auto;
+}
+
+.vision .body .visual svg path:first-child {
+    stroke-dashoffset: 600;
+    stroke-dasharray: 600;
+    animation: visionVisual 4s cubic-bezier(0.87,0.236,0.237,0.905) 0.5s infinite;
+}
+
+/* ================================================== */
+/* SYSTEM */
+/* ================================================== */
+
+.system {
+    background-image: url('/assets/images/desktop/system.webp');
+    background-size: cover;
+    background-position: center;
+}
+
+.system .project {
+    background-color: var(--color-surface-main);
+    backdrop-filter: blur(4px);
+    max-width: 568px;
+    border: 1px solid var(--color-border-dark);
+    box-shadow: inset 2px 2px 8px -2px var(--color-border-light);
+    position: relative;
+    z-index: 0;
+    overflow: hidden;
+}
+
+.system .project::before,
+.system .project::after {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    border-radius: 50%;
+    filter: blur(30px);
+    width: 80%;
+    height: 60%;
+
+    background: radial-gradient(
+        circle at 50%,
+        #D97741A2, #F0A26CA2 , transparent
+    );
+}
+
+.system .project::before {
+    top: 0;
+    left: 0;
+    transform: translate(-50%, -50%);
+}
+
+.system .project::after {
+    bottom: 0;
+    right: 0;
+    transform: translate(50%, 50%);
+}
+
+/* ================================================== */
+/* FEATURED */
+/* ================================================== */
+
+.featured {
+    background-image: url('/assets/images/desktop/featured.webp');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    z-index: 0;
+}
+
+.featured .spare-elem {
+    background-color: var(--color-surface-main);
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    backdrop-filter: blur(10px);
+    mask-image: linear-gradient(135deg, rgba(0, 0, 0, 1) 5%, rgba(0, 0, 0, 0) 100%);
+}
+
+/* ================================================== */
+/* PARTNERSHIP */
+/* ================================================== */
+
+.partnership {
+    background-image: url('/assets/images/desktop/space.webp');
+    background-size: cover;
+    background-position: center;
+}
+
+.partnership .frame-body .frame-elem {
+    position: relative;
+    z-index: 0;
+    overflow: hidden;
+}
+
+.partnership .frame-body .frame-elem::before {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    width: 80%;
+    height: 60%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    filter: blur(30px);
+
+    background: radial-gradient(
+        circle at 50%,
+        var(--color-accent-main), transparent
+    );
+}
+
+/* ================================================== */
+/* ABOUT */
+/* ================================================== */
+
+.about {
+    background-image: url('/assets/images/me.webp');
+    background-size: cover;
+    background-position: center;
+}
+
+/* ================================================== */
+/* & RESPONSIVENESS */
+/* ================================================== */
+
+@media (max-width: 568px) {
+    .hero { background-image: url('/assets/images/phone/hero.webp'); }
+    .system { background-image: url('/assets/images/phone/system.webp'); }
+    .featured { background-image: url('/assets/images/phone/featured.webp'); }
+    .partnership { background-image: url('/assets/images/phone/space.webp'); }
+}

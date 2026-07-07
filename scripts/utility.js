@@ -68,16 +68,6 @@ document.addEventListener('mousemove', (e) => {
     cursor.style.top = mouseY + 'px';
 });
 
-// & EVENT LISTENER FOR TOUCH MOVEMENT
-document.addEventListener('touchmove', (e) => {
-    mouseX = e.touches[0].clientX;
-    mouseY = e.touches[0].clientY;
-
-    // Dot moves instantly to the mouse
-    cursor.style.left = mouseX + 'px';
-    cursor.style.top = mouseY + 'px';
-});
-
 // & EVENT LISTENER FOR MOUSE MOVEMENT OVER INTERACTIVE ELEMENTS
 interactiveElements.forEach((element) => {
     element.addEventListener('mouseenter', () => {

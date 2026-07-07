@@ -2,8 +2,7 @@
 /* BASIC */
 /* ================================================== */
 
-.min-h-screen .section { min-height: 100vh; }
-
+.main { overflow-x: hidden; }
 
 /* ================================================== */
 /* KEYFRAMES */
@@ -13,6 +12,11 @@
     0% { stroke-dashoffset: 600; }
     50% { stroke-dashoffset: 0; }
     100% { stroke-dashoffset: -600; }
+}
+
+@keyframes glowElem {
+    0%, 100% { transform: scale(1.1) translate(50%, -40%); }
+    50% { transform: scale(1) translate(50%, -50%); }
 }
 
 /* ================================================== */
@@ -68,177 +72,177 @@
 /* ================================================== */
 
 .hero {
+    background-image: url('/assets/images/desktop/hero.webp');
+    background-position: center;
+    background-size: cover;
+
     height: 100dvh;
     margin-top: -122px;
     padding-bottom: 96px;
-
-    background-image: url('/assets/images/desktop/hero.webp');
-    background-size: cover;
-    background-position: center;
+    position: relative;
 }
 
-.hero .section > * {
+/* ----- Hero tagline ----- */
+
+.hero .tagline {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100dvh;
+    transform: rotate(-90deg) translateY(20px);
+    transform-origin: left center;
+}
+
+.hero .tagline .st-line {
+    width: 12vh;
+    height: 2px;
+    background-color: var(--color-accent-main);
+}
+
+.hero .tagline .target .line {
+    width: 16vh;
+    height: 2px;
+    background-color: var(--color-border-dark);
+}
+
+.hero .tagline .target .aim {
+    padding: 12px;
+    width: fit-content;
+    border-radius: 50%;
+    border: 1px solid var(--color-border-dark);
+    position: relative;
+}
+
+.hero .tagline .target .aim::before,
+.hero .tagline .target .aim::after {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    top: calc(50% - 1px);
+    left: -30%;
+    width: 160%;
+    border: 1px dashed var(--color-border-light);
+}
+
+.hero .tagline .target .aim::after {
+    transform: rotate(90deg);
+}
+
+.hero .tagline .target .aim .point {
+    width: 8px;
+    aspect-ratio: 1 / 1;
+    background-color: var(--color-accent-main);
+    border-radius: 50%;
+}
+
+/* ----- Hero content ----- */
+
+.hero .h1 {
     max-width: 568px;
     text-wrap: balance;
 }
 
-.hero .cta {
+.hero .actions .fl {
     position: relative;
     z-index: 0;
-    background-color: transparent;
+    background: transparent;
     border: 2px solid var(--color-accent-main);
-    backdrop-filter: blur(4px);
 }
 
-.hero .cta::before {
+.hero .actions .fl::before {
     content: '';
     position: absolute;
     z-index: -1;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    background-color: var(--color-accent-main);
+    inset: 0;
     border-radius: 50px;
     clip-path: circle(20% at 0% 100%);
-    transition: all 1s;
+    transition: all 0.5s;
+    background-color: var(--color-accent-main);
 }
 
-.hero .cta:hover {color: var(--color-text-main);}
-.hero .cta:hover::before {clip-path: circle(150% at 100% 100%);}
+.hero .actions .fl:hover::before { clip-path: circle(150% at 0% 100%); }
+
+/* ================================================== */
+/* FEATURED */
+/* ================================================== */
+
+.featured .body { max-width: 968px; }
+
+.featured .project {
+    max-width: 568px;
+    position: relative;
+    backdrop-filter: blur(4px);
+    background-color: var(--color-surface-alt);
+    overflow: hidden;
+}
+
+.featured .project::before {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    right: 0;
+    width: 50%;
+    border-radius: 50%;
+    aspect-ratio: 1 / 1;
+    transform: translate(50%, -50%);
+    filter: blur(10px);
+    animation: glowElem 6s cubic-bezier(0.7,0.1,0.5,0.9) infinite;
+
+    background: radial-gradient(
+        circle at 50%,
+        var(--color-accent-main) 0%,
+        var(--color-accent-alt) 25%,
+        transparent 80%
+    );
+}
+
+.featured .project .image-container {
+    position: relative;
+    aspect-ratio: 16 / 9;
+    z-index: 0;
+}
+
+.featured .project:hover .img { transform: scale(1.1); }
+
+.featured .project .image-container .text-content { background-color: var(--color-surface-alt); }
+
+.featured .project .image-container .img {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    transition: transform 0.6s cubic-bezier(0.7,0.1,0.5,0.9);
+}
+
+.featured .project .challenge .uppercase { color: var(--color-state-red); }
+.featured .project .transformation .uppercase { color: var(--color-state-yellow); }
+.featured .project .outcome .uppercase { color: var(--color-state-green); }
 
 /* ================================================== */
 /* VISION */
 /* ================================================== */
 
-.vision .body .text-content {
-    max-width: 568px;
-    text-wrap: balance;
-}
-
-.vision .body .visual svg {
+.vision svg {
     width: min(512px, 100%);
     height: auto;
 }
 
-.vision .body .visual svg path:first-child {
+.vision svg path:first-child {
     stroke-dashoffset: 600;
     stroke-dasharray: 600;
     animation: visionVisual 4s cubic-bezier(0.87,0.236,0.237,0.905) 0.5s infinite;
 }
 
 /* ================================================== */
-/* SYSTEM */
+/* CONNECT */
 /* ================================================== */
 
-.system {
-    background-image: url('/assets/images/desktop/system.webp');
-    background-size: cover;
-    background-position: center;
-}
-
-.system .project {
-    background-color: var(--color-surface-main);
-    backdrop-filter: blur(4px);
-    max-width: 568px;
-    border: 1px solid var(--color-border-dark);
-    box-shadow: inset 2px 2px 8px -2px var(--color-border-light);
-    position: relative;
-    z-index: 0;
-    overflow: hidden;
-}
-
-.system .project::before,
-.system .project::after {
-    content: '';
-    position: absolute;
-    z-index: -1;
-    border-radius: 50%;
-    filter: blur(30px);
-    width: 80%;
-    height: 60%;
-
-    background: radial-gradient(
-        circle at 50%,
-        #D97741A2, #F0A26CA2 , transparent
+.connect {
+    background: linear-gradient(
+        45deg,
+        var(--color-bg-card),
+        var(--color-bg-main) 60%
     );
-}
-
-.system .project::before {
-    top: 0;
-    left: 0;
-    transform: translate(-50%, -50%);
-}
-
-.system .project::after {
-    bottom: 0;
-    right: 0;
-    transform: translate(50%, 50%);
-}
-
-/* ================================================== */
-/* FEATURED */
-/* ================================================== */
-
-.featured {
-    background-image: url('/assets/images/desktop/featured.webp');
-    background-size: cover;
-    background-position: center;
-    position: relative;
-    z-index: 0;
-}
-
-.featured .spare-elem {
-    background-color: var(--color-surface-main);
-    position: absolute;
-    inset: 0;
-    z-index: -1;
-    backdrop-filter: blur(10px);
-    mask-image: linear-gradient(135deg, rgba(0, 0, 0, 1) 5%, rgba(0, 0, 0, 0) 100%);
-}
-
-/* ================================================== */
-/* PARTNERSHIP */
-/* ================================================== */
-
-.partnership {
-    background-image: url('/assets/images/desktop/space.webp');
-    background-size: cover;
-    background-position: center;
-}
-
-.partnership .frame-body .frame-elem {
-    position: relative;
-    z-index: 0;
-    overflow: hidden;
-}
-
-.partnership .frame-body .frame-elem::before {
-    content: '';
-    position: absolute;
-    z-index: -1;
-    top: 0;
-    left: 0;
-    width: 80%;
-    height: 60%;
-    transform: translate(-50%, -50%);
-    border-radius: 50%;
-    filter: blur(30px);
-
-    background: radial-gradient(
-        circle at 50%,
-        var(--color-accent-main), transparent
-    );
-}
-
-/* ================================================== */
-/* ABOUT */
-/* ================================================== */
-
-.about {
-    background-image: url('/assets/images/me.webp');
-    background-size: cover;
-    background-position: center;
 }
 
 /* ================================================== */
@@ -247,7 +251,10 @@
 
 @media (max-width: 568px) {
     .hero { background-image: url('/assets/images/phone/hero.webp'); }
-    .system { background-image: url('/assets/images/phone/system.webp'); }
-    .featured { background-image: url('/assets/images/phone/featured.webp'); }
-    .partnership { background-image: url('/assets/images/phone/space.webp'); }
+}
+
+@media (max-width: 512px) {
+    .featured .project .grid {
+        grid-template-columns: 1fr;
+    }
 }

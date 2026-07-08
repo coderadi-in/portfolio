@@ -153,8 +153,7 @@ html {
 }
 
 .header {
-    position: sticky;
-    top: -70px;
+    position: fixed;
     z-index: 20;
     background-color: var(--color-surface-main);
     backdrop-filter: blur(4px);

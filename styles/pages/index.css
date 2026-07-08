@@ -77,65 +77,9 @@
     background-size: cover;
 
     height: 100dvh;
-    margin-top: -122px;
     padding-bottom: 96px;
     position: relative;
 }
-
-/* ----- Hero tagline ----- */
-
-.hero .tagline {
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 100dvh;
-    transform: rotate(-90deg) translateY(20px);
-    transform-origin: left center;
-}
-
-.hero .tagline .st-line {
-    width: 12vh;
-    height: 2px;
-    background-color: var(--color-accent-main);
-}
-
-.hero .tagline .target .line {
-    width: 16vh;
-    height: 2px;
-    background-color: var(--color-border-dark);
-}
-
-.hero .tagline .target .aim {
-    padding: 12px;
-    width: fit-content;
-    border-radius: 50%;
-    border: 1px solid var(--color-border-dark);
-    position: relative;
-}
-
-.hero .tagline .target .aim::before,
-.hero .tagline .target .aim::after {
-    content: '';
-    position: absolute;
-    z-index: -1;
-    top: calc(50% - 1px);
-    left: -30%;
-    width: 160%;
-    border: 1px dashed var(--color-border-light);
-}
-
-.hero .tagline .target .aim::after {
-    transform: rotate(90deg);
-}
-
-.hero .tagline .target .aim .point {
-    width: 8px;
-    aspect-ratio: 1 / 1;
-    background-color: var(--color-accent-main);
-    border-radius: 50%;
-}
-
-/* ----- Hero content ----- */
 
 .hero .h1 {
     max-width: 568px;

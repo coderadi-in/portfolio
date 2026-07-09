@@ -5,7 +5,7 @@
 @property --end {
     syntax: "<percentage>";
     inherits: true;
-    initial-value: 25%;
+    initial-value: 10%;
 }
 
 /* ================================================== */
@@ -13,8 +13,8 @@
 /* ================================================== */
 
 @keyframes bgGlow {
-    0%, 100% { --end: 25% }
-    50% { --end: 30% }
+    0%, 100% { --end: 10% }
+    50% { --end: 15% }
 }
 
 /* ================================================== */
@@ -22,79 +22,101 @@
 /* ================================================== */
 
 .hero {
-    background-image: url('/assets/images/desktop/manifesto.webp');
+    background-image: url('/assets/images/desktop/atelier.webp');
     background-size: cover;
     background-position: center;
 
-    padding-top: 70px;
-    padding-bottom: 96px;
-    position: relative;
-    z-index: 0;
     height: 100dvh;
     transition: height 0.5s;
 }
 
-.hero::before {
+.hero .btn {
+    position: relative;
+    z-index: 0;
+    background: transparent;
+    border: 2px solid var(--color-accent-main);
+    backdrop-filter: blur(4px);
+}
+
+.hero .btn::before {
     content: '';
     position: absolute;
-    inset: 0;
     z-index: -1;
-    opacity: 0.5;
-    background-color: var(--color-bg-main);
-    mask-image: linear-gradient(to top, rgba(0, 0, 0, 1) 20%, rgba(0, 0, 0, 0) 100%);
+    inset: 0;
+    border-radius: 50px;
+    clip-path: circle(20% at 0% 100%);
+    transition: all 0.5s;
+    background-color: var(--color-accent-main);
+}
+
+.hero .btn:hover { color: var(--color-text-main); }
+.hero .btn:hover::before { clip-path: circle(150% at 0% 100%); }
+
+/* ================================================== */
+/* ARTIFACTS */
+/* ================================================== */
+
+.artifacts .grid .link { position: relative; }
+
+.artifacts .grid .link .img { transition: transform 1s cubic-bezier(0.7,0.1,0.5,0.9); }
+.artifacts .grid .link:hover .img { transform: scale(1.1); }
+
+.artifacts .grid .link .text {
+    position: absolute;
+    bottom: 16px;
+    left: 16px;
 }
 
 /* ================================================== */
-/* CODE */
+/* ARTIFACT */
 /* ================================================== */
 
-.code {
-    animation: bgGlow 5s cubic-bezier(0.7,0.1,0.5,0.9) infinite;
+.artifact {
+    animation: bgGlow 6s cubic-bezier(0.7,0.1,0.5,0.9) infinite;
 
     background: radial-gradient(
-        circle at 100% 50%,
+        circle at 0% 0%,
+        #2364AA 0%,
+        var(--color-bg-main) var(--end)
+    );
+}
+
+.artifact .grid {
+    grid-template-areas:
+        "image head"
+        "image body"
+        "points points";
+}
+
+.artifact .img { grid-area: image; }
+.artifact .head { grid-area: head; }
+.artifact .body { grid-area: body; }
+.artifact .points { grid-area: points; }
+
+.artifact .point {
+    border-left: 2px solid var(--c);
+    padding-left: 12px;
+}
+
+.artifact .point .fw-500 { color: var(--c); }
+
+/* ================================================== */
+/* SYSTEM */
+/* ================================================== */
+
+.system .body .stage {
+    background: linear-gradient(
+        315deg,
         var(--color-accent-main) 0%,
-        transparent var(--end)
-    );
-}
-
-.code .quadrant {
-    border: 1px solid var(--color-border-light);
-    background-color: var(--color-surface-alt);
-}
-
-/* ================================================== */
-/* VISION */
-/* ================================================== */
-
-.vision .h3 {
-    max-width: 568px;
-    text-wrap: balance;
-}
-
-/* ================================================== */
-/* MOMENTUM */
-/* ================================================== */
-
-.momentum .quadrant {
-    animation: bgGlow 5s cubic-bezier(0.7,0.1,0.5,0.9) infinite;
-    
-    background: radial-gradient(
-        circle at 0% 100%,
-        var(--c) 0%,
-        var(--color-surface-alt) var(--end)
+        transparent var(--s)
     );
 }
 
 /* ================================================== */
-/* HUMAN */
+/* HANDSHAKE */
 /* ================================================== */
 
-.human {
-    background-image: url('/assets/images/me.webp');
-    background-size: cover;
-    background-position: center;
-}
+.handshake .social .btn { background-color: var(--color-text-main); }
 
 /* ================================================== */
 /* POPOVERS */
@@ -157,5 +179,5 @@
 /* ================================================== */
 
 @media (max-width: 568px) {
-    .hero { background-image: url('/assets/images/phone/manifesto.webp'); }
+    .hero { background-image: url('/assets/images/phone/atelier.webp'); }
 }

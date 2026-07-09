@@ -87,9 +87,9 @@
     position: absolute;
     inset: 0;
     z-index: -1;
-    backdrop-filter: blur(4px);
-    background-color: var(--color-surface-main);
-    mask-image: linear-gradient(to top, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 100%);
+    opacity: 0.5;
+    background-color: var(--color-bg-main);
+    mask-image: linear-gradient(to top, rgba(0, 0, 0, 1) 20%, rgba(0, 0, 0, 0) 100%);
 }
 
 /* ----- LEFT SECTION CONTENT ----- */

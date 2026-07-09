@@ -1,0 +1,160 @@
+/* ================================================== */
+/* CUSTOM VALUES */
+/* ================================================== */
+
+@property --end {
+    syntax: "<percentage>";
+    inherits: true;
+    initial-value: 25%;
+}
+
+/* ================================================== */
+/* KEYFRAMES */
+/* ================================================== */
+
+@keyframes bgGlow {
+    0%, 100% { --end: 25% }
+    50% { --end: 30% }
+}
+
+/* ================================================== */
+/* HERO */
+/* ================================================== */
+
+.hero {
+    background-image: url('/assets/images/desktop/manifesto.webp');
+    background-size: cover;
+    background-position: center;
+
+    padding-top: 70px;
+    padding-bottom: 96px;
+    position: relative;
+    z-index: 0;
+    height: 100dvh;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    opacity: 0.5;
+    background-color: var(--color-bg-main);
+    mask-image: linear-gradient(to top, rgba(0, 0, 0, 1) 20%, rgba(0, 0, 0, 0) 100%);
+}
+
+/* ================================================== */
+/* CODE */
+/* ================================================== */
+
+.code {
+    animation: bgGlow 5s cubic-bezier(0.7,0.1,0.5,0.9) infinite;
+
+    background: radial-gradient(
+        circle at 100% 50%,
+        var(--color-accent-main) 0%,
+        transparent var(--end)
+    );
+}
+
+.code .quadrant {
+    border: 1px solid var(--color-border-light);
+    background-color: var(--color-surface-alt);
+}
+
+/* ================================================== */
+/* VISION */
+/* ================================================== */
+
+.vision .h3 {
+    max-width: 568px;
+    text-wrap: balance;
+}
+
+/* ================================================== */
+/* MOMENTUM */
+/* ================================================== */
+
+.momentum .quadrant {
+    animation: bgGlow 5s cubic-bezier(0.7,0.1,0.5,0.9) infinite;
+    
+    background: radial-gradient(
+        circle at 0% 100%,
+        var(--c) 0%,
+        var(--color-surface-alt) var(--end)
+    );
+}
+
+/* ================================================== */
+/* HUMAN */
+/* ================================================== */
+
+.human {
+    background-image: url('/assets/images/me.webp');
+    background-size: cover;
+    background-position: center;
+}
+
+/* ================================================== */
+/* POPOVERS */
+/* ================================================== */
+
+.popover {
+    position: fixed;
+    z-index: 30;
+    border: 1px solid var(--color-bg-card);
+    color: var(--color-text-main);
+    backdrop-filter: blur(4px);
+    width: min(512px, calc(100% - 24px));
+    margin: auto;
+    transition: transform 0.3s cubic-bezier(0.911, 0.161, 0.181, 0.797);
+}
+
+/* ----- WORK FORM SPECIFIC ----- */
+
+.work-form {
+    transform: scale(0); 
+    background:
+        radial-gradient(circle at 0% 0%, var(--color-accent-alt) 0%, var(--color-surface-alt) 20%),
+        radial-gradient(circle at 100% 100%, var(--color-accent-alt) 0%, var(--color-surface-alt) 25%);
+}
+
+.work-form.open { transform: scale(1); }
+
+.work-form .input-elem .err-msg {
+    padding-left: 12px;
+    color: var(--color-state-red);
+    transition:
+        display 0.4s,
+        opacity 0.4s 100ms;
+}
+
+.work-form .btn { border: 1px solid var(--color-accent-main); }
+
+/* ----- SUCCESS PAGE SPECIFIC ----- */
+
+.success-page {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    background:
+        radial-gradient(circle at 0% 0%, var(--color-state-green) 0%, var(--color-surface-alt) 20%),
+        radial-gradient(circle at 100% 100%, var(--color-state-green) 0%, var(--color-surface-alt) 25%);
+}
+
+.success-page .symbol {
+    background-color: var(--color-state-green);
+    border-radius: 50%;
+    padding: 12px;
+}
+
+.success-page .btn { background-color: var(--color-state-green); }
+.success-page.open { transform: translate(-50%, -50%) scale(1); }
+
+/* ================================================== */
+/* & RESPONSIVENESS */
+/* ================================================== */
+
+@media (max-width: 568px) {
+    .hero { background-image: url('/assets/images/phone/manifesto.webp'); }
+}

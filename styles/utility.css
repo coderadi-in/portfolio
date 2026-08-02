@@ -381,12 +381,8 @@ html {
 /* EFFECTS */
 /* ================================================== */
 
-.shadow { box-shadow: 5px 5px 10px -5px var(--color-fg-alt); }
-
-.glass {
-    backdrop-filter: blur(4px);
-    box-shadow: inset 2px 2px 8px 2px var(--color-border-light);
-}
+.fx-shadow { box-shadow: 5px 5px 10px -5px var(--color-fg-card); }
+.fx-blur { backdrop-filter: blur(4px); }
 
 /* ================================================== */
 /* COLORS */
@@ -464,7 +460,23 @@ textarea.input {
     color: var(--color-fg-main);
     transition: color 0.3s;
 }
-.icon-ot:hover { color: var(--color-fg-card); }
+
+.icon-ot .text {
+    transform: translateX(16px);
+    transition: transform 0.3s;
+}
+
+.icon-ot .symbol {
+    transform: translateX(-12px);
+    opacity: 0;
+    transition: transform 0.3s, opacity 0.3s;
+}
+
+.icon-ot:hover .text { transform: translateX(0); }
+.icon-ot:hover .symbol {
+    transform: translateX(0);
+    opacity: 1;
+}
 
 .icon-fl {
     display: flex;

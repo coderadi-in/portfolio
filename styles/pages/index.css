@@ -80,8 +80,6 @@
     padding-bottom: 96px;
 }
 
-/* ----- LEFT SECTION CONTENT ----- */
-
 .hero .h1 {
     max-width: 568px;
     text-wrap: balance;
@@ -115,57 +113,11 @@
 /* FEATURED */
 /* ================================================== */
 
-.featured .body { max-width: 968px; }
-
-.featured .project {
-    max-width: 568px;
-    position: relative;
-    backdrop-filter: blur(4px);
-    background-color: var(--color-surface-alt);
-    overflow: hidden;
+.featured {
+    background-image: url('/assets/images/desktop/featured.webp');
+    background-size: cover;
+    background-position: center;
 }
-
-.featured .project::before {
-    content: '';
-    position: absolute;
-    z-index: -1;
-    top: 0;
-    right: 0;
-    width: 50%;
-    border-radius: 50%;
-    aspect-ratio: 1 / 1;
-    transform: translate(50%, -50%);
-    filter: blur(10px);
-    animation: glowElem 6s cubic-bezier(0.7,0.1,0.5,0.9) infinite;
-
-    background: radial-gradient(
-        circle at 50%,
-        var(--color-fg-main) 0%,
-        var(--color-fg-alt) 25%,
-        transparent 80%
-    );
-}
-
-.featured .project .image-container {
-    position: relative;
-    aspect-ratio: 16 / 9;
-    z-index: 0;
-}
-
-.featured .project:hover .img { transform: scale(1.1); }
-
-.featured .project .image-container .text-content { background-color: var(--color-surface-alt); }
-
-.featured .project .image-container .img {
-    position: absolute;
-    inset: 0;
-    z-index: -1;
-    transition: transform 0.6s cubic-bezier(0.7,0.1,0.5,0.9);
-}
-
-.featured .project .challenge .uppercase { color: var(--color-state-red); }
-.featured .project .transformation .uppercase { color: var(--color-state-yellow); }
-.featured .project .outcome .uppercase { color: var(--color-state-green); }
 
 /* ================================================== */
 /* VISION */
@@ -253,6 +205,10 @@
 /* ================================================== */
 /* & RESPONSIVENESS */
 /* ================================================== */
+
+@media (max-width: 568px) {
+    .featured { background-image: url('/assets/images/phone/featured.webp'); }
+}
 
 @media (max-width: 512px) {
     .featured .project .grid {

@@ -16,6 +16,7 @@
     <title>coderadi &bull; Aditya</title>
 
     <link rel="stylesheet" href="styles/utility.css">
+    <link rel="stylesheet" href="styles/header.css">
     <link rel="stylesheet" href="styles/pages/index.css">
 </head>
 
@@ -24,11 +25,11 @@
         <div class="custom-cursor"></div>
     </div>
 
-    <div class="loader" id="loader" aria-hidden="true">
+    <!-- <div class="loader" id="loader" aria-hidden="true">
         <canvas id="loaderCanvas"></canvas>
-    </div>
+    </div> -->
 
-    <header class="header w-full">
+    <header class="header w-full inverted-element">
         <section class="section p-20 grid cols-3">
             <div class="menu-btn link row gap-12 w-fit">
                 <div class="menu-illustration column gap-4">
@@ -50,7 +51,7 @@
         </section>
     </header>
 
-    <nav class="nav">
+    <nav class="nav inverted-element">
         <section class="section p-20 column h-sb">
             <div class="spare-element"></div>
 
@@ -65,13 +66,13 @@
     </nav>
 
     <main class="main bg-main" id="main">
-        <section class="hero column h-en min-h-screen" id="hero">
+        <section class="hero column h-en min-h-screen inverted-element" id="hero">
             <section class="section p-48 grid cols-auto-400 v-en gap-24">
                 <div class="left-section column gap-24">
                     <div class="text-content column gap-12">
-                        <h1 class="h1">Turning complexity into business momentum</h1>
-                        <p class="para fs-20">I simplify ideas, products, and workflows into
-                            digital experiences people understand.</p>
+                        <h1 class="h1">Developer &amp; Entrepreneur</h1>
+                        <p class="para fs-20">I'm Aditya, I build software to reduce everyday friction and make life
+                            more enjoyable.</p>
                     </div>
 
                     <div class="actions">
@@ -121,7 +122,8 @@
                             </div>
                         </div>
 
-                        <a href="https://auvora-echo.coderadi.in" class="link btn ot rounded-full ph-24 pv-12 uppercase">Discover now</a>
+                        <a href="https://auvora-echo.coderadi.in"
+                            class="link btn ot rounded-full ph-24 pv-12 uppercase">Discover now</a>
                     </div>
                 </div>
             </section>
@@ -256,8 +258,10 @@
         </section>
     </main>
 
-    <script type="module" src="scripts/utility.js"></script>
+    <script type="module" src="scripts/cursor.js"></script>
+    <script type="module" src="scripts/fadein.js"></script>
     <script type="module" src="scripts/loader.js"></script>
+    <script type="module" src="scripts/header.js"></script>
     <script type="module" src="scripts/form.js"></script>
 </body>
 

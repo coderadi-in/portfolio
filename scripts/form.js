@@ -2,14 +2,14 @@
 // ELEMENT REFERENCE
 // ==================================================
 
-const challengeForm = document.getElementById('challengeForm');
 const successPage = document.getElementById('successPage');
 
-const challengeDesc = document.getElementById('challengeDesc');
 const challengeName = document.getElementById('challengeName');
 const challengeEmail = document.getElementById('challengeEmail');
+const challengePhone = document.getElementById('challengePhone');
+const challengeDesc = document.getElementById('challengeDesc');
 
-const challengeSend = document.querySelector('.work-form .btn');
+const challengeSend = document.querySelector('#challengeForm .send');
 const hideSuccessPage = document.querySelector('.success-page .btn');
 
 // ==================================================
@@ -17,8 +17,8 @@ const hideSuccessPage = document.querySelector('.success-page .btn');
 // ==================================================
 
 // * FUNCTION TO TOGGLE SEND-BTN STATE
-function toggleSendBtnState() {
-    challengeSend.classList.toggle('disabled', challengeDesc.value.trim() === '' || challengeName.value.trim() === '' || challengeEmail.value.trim() === '');
+function toggleSendBtnState(btn) {
+    btn.classList.toggle('disabled', challengeName.value.trim() === '' || challengeEmail.value.trim() === '' || challengePhone.value.trim() === '' || challengeDesc.value.trim() === '');
 }
 
 // * FUNCTION TO UPDATE INPUT STATES
@@ -41,19 +41,74 @@ function updateInputState(elem) {
 }
 
 // * FUNCTION TO CREATE A FORM DATA OBJECT
-function createFormData() {
+function createFormData(entries) {
     const formData = new FormData();
-    formData.append('entry.63267066', challengeDesc.value);
-    formData.append('entry.1411531399', challengeName.value);
-    formData.append('entry.584943803', challengeEmail.value);
+
+    for (const [key, value] of Object.entries(entries)) {
+        formData.append(key, value.value);
+    }
+
     return formData;
 }
 
 // * FUNCTION TO RESET INPUTS
-function resetInputs() {
-    challengeDesc.value = '';
-    challengeName.value = '';
-    challengeEmail.value = '';
+function resetInputs(inputs) {
+    inputs.forEach(element => {
+        element.value = '';
+    });
+}
+
+// * FUNCTION TO ADD EVENT LISTENER FOR UPDATING INPUT STATE
+function addUpdateStateChanger(input, submitBtn) {
+    input.addEventListener('input', () => {
+        updateInputState(input);
+        toggleSendBtnState(submitBtn);
+    });
+}
+
+// * FUNCTION TO SUBMIT A FORM
+function addSubmissionListener(submitBtn, entries, submitURL) {
+    const inputs = Object.values(entries);
+
+    submitBtn.addEventListener('click', () => {
+        let isValid = true;
+
+        // Validate inputs
+        inputs.forEach((input) => {
+            if (input.value.trim() == '') {
+                isValid = false;
+                updateInputState(input);
+            }
+        });
+
+        if (!isValid) {
+            submitBtn.classList.add('shake');
+            setTimeout(() => {
+                submitBtn.classList.remove('shake');
+            }, 2000);
+            return;
+        }
+
+        // Submit form
+        try {
+            const formData = createFormData(entries);
+            fetch(submitURL, {
+                method: 'POST',
+                mode: 'no-cors',
+                body: formData
+            });
+            resetInputs(inputs);
+
+            submitBtn.classList.remove('open');
+            setTimeout(() => {
+                successPage.classList.add('open');
+            }, 400);
+
+        } catch {
+            submitBtn.style.borderColor = 'var(--color-state-red)';
+            submitBtn.textContent = "Error submitting form.";
+        }
+    });
 }
 
 // ==================================================
@@ -68,55 +123,24 @@ challengeForm.addEventListener('beforetoggle', (event) => {
 });
 
 // & EVENT LISTENER FOR INPUT VALIDATION
-challengeDesc.addEventListener('input', () => {
-    updateInputState(challengeDesc);
-    toggleSendBtnState();
-});
-
-challengeName.addEventListener('input', () => {
-    updateInputState(challengeName);
-    toggleSendBtnState();
-});
-
-challengeEmail.addEventListener('input', () => {
-    updateInputState(challengeEmail);
-    toggleSendBtnState();
-});
+addUpdateStateChanger(challengeName, challengeSend);
+addUpdateStateChanger(challengeEmail, challengeSend);
+addUpdateStateChanger(challengePhone, challengeSend);
+addUpdateStateChanger(challengeDesc, challengeSend);
 
 // & EVENT LISTENER FOR SUCCESS PAGE CLOSE
 hideSuccessPage.addEventListener('click', () => {
     successPage.classList.remove('open');
 });
 
-// & EVENT LISTENER FOR FORM SUBMISSION
-challengeSend.addEventListener('click', () => {
-    // Validate inputs
-    if (challengeDesc.value.trim() === '' || challengeName.value.trim() === '' || challengeEmail.value.trim() === '') {
-        updateInputState(challengeDesc);
-        updateInputState(challengeName);
-        updateInputState(challengeEmail);
-        return;
-    }
-
-    try {
-        const formData = createFormData();    
-        fetch('https://docs.google.com/forms/d/e/1FAIpQLSevf1sFPc3Rp5Ewv3AZZnaidtxGksUsDJZpnqPrixrWPV1rPg/formResponse', {
-            method: 'POST',
-            mode: 'no-cors',
-            body: formData
-        });
-        resetInputs();
-
-        challengeForm.classList.remove('open');
-        setTimeout(() => {
-            successPage.classList.add('open');
-        }, 400);
-
-    } catch {
-        challengeForm.style.borderColor = 'var(--color-state-red)';
-        challengeSend.textContent = "Error submitting form.";
-        
-        challengeForm.querySelector('.fs-20').textContent = "Error submitting form.";
-        challengeForm.querySelector('.para').textContent = "Please try again later.";
-    }
-});
+// & EVENT LISTENER FOR CHALLENGE FORM SUBMISSION
+addSubmissionListener(
+    challengeSend,
+    {
+        'entry.1411531399': challengeName,
+        'entry.584943803': challengeEmail,
+        'entry.650751546': challengePhone,
+        'entry.63267066': challengeDesc,
+    },
+    'https://docs.google.com/forms/d/e/1FAIpQLSevf1sFPc3Rp5Ewv3AZZnaidtxGksUsDJZpnqPrixrWPV1rPg/formResponse'
+);

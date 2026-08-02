@@ -1,0 +1,44 @@
+/* ================================================== */
+/* FORMS */
+/* ================================================== */
+
+.form {
+    position: fixed;
+    z-index: 40;
+    inset: 0;
+    transform: translateY(100vh);
+    opacity: 0;
+    pointer-events: none;
+
+    transition:
+        opacity 0.5s,
+        transform 1.8s linear(0, 0.0075, 0.0283, 0.0599, 0.1002, 0.147, 0.1987, 0.2537, 0.3108, 0.3686, 0.4263, 0.483, 0.5381, 0.591, 0.6412, 0.6886, 0.7329, 0.7739, 0.8115, 0.8458, 0.8768, 0.9045, 0.9292, 0.9509, 0.9698, 0.986, 0.9999, 1.0115, 1.021, 1.0287, 1.0348, 1.0393, 1.0425, 1.0446, 1.0457, 1.046, 1.0455, 1.0445, 1.0429, 1.041, 1.0388, 1.0364, 1.0339, 1.0312, 1.0286, 1.0259, 1.0233, 1.0208, 1.0184, 1.0161, 1.014, 1.0119, 1.0101, 1.0084, 1.0068, 1.0054, 1.0042, 1.0031, 1.0021, 1.0013, 1.0005, 0.9999, 0.9994, 0.999, 0.9986, 0.9984, 0.9982, 0.998, 0.9979, 0.9979, 0.9979, 0.9979, 0.998, 0.998, 0.9981, 0.9982, 0.9983, 0.9985, 0.9986, 0.9987, 0.9988, 0.9989, 0.9991, 0.9992, 0.9993, 0.9994, 0.9995, 0.9996, 0.9996, 0.9997, 0.9998, 0.9998, 0.9999, 0.9999, 0.9999, 1, 1, 1, 1.0001, 1.0001, 1);
+}
+
+.form.active {
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.form .section { max-width: 768px; }
+
+/* ----- SUCCESS PAGE SPECIFIC ----- */
+
+.success-page {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    background:
+        radial-gradient(circle at 0% 0%, var(--color-state-green) 0%, var(--color-surface-alt) 20%),
+        radial-gradient(circle at 100% 100%, var(--color-state-green) 0%, var(--color-surface-alt) 25%);
+}
+
+.success-page .symbol {
+    background-color: var(--color-state-green);
+    border-radius: 50%;
+    padding: 12px;
+}
+
+.success-page .btn { background-color: var(--color-state-green); }
+.success-page.open { transform: translate(-50%, -50%) scale(1); }

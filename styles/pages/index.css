@@ -120,19 +120,10 @@
 }
 
 /* ================================================== */
-/* VISION */
+/* PERSONA */
 /* ================================================== */
 
-.vision svg {
-    width: min(512px, 100%);
-    height: auto;
-}
-
-.vision svg path:first-child {
-    stroke-dashoffset: 600;
-    stroke-dasharray: 600;
-    animation: visionVisual 4s cubic-bezier(0.87,0.236,0.237,0.905) 0.5s infinite;
-}
+.persona .column:last-child { margin-left: auto; }
 
 /* ================================================== */
 /* CONNECT */
@@ -145,62 +136,6 @@
         var(--color-bg-main) 60%
     );
 }
-
-/* ================================================== */
-/* POPOVERS */
-/* ================================================== */
-
-.popover {
-    position: fixed;
-    z-index: 30;
-    border: 1px solid var(--color-bg-card);
-    color: var(--color-text-main);
-    backdrop-filter: blur(4px);
-    width: min(512px, calc(100% - 24px));
-    margin: auto;
-    transition: transform 0.3s cubic-bezier(0.911, 0.161, 0.181, 0.797);
-}
-
-/* ----- WORK FORM SPECIFIC ----- */
-
-.work-form {
-    transform: scale(0); 
-    background:
-        radial-gradient(circle at 0% 0%, var(--color-fg-alt) 0%, var(--color-surface-alt) 20%),
-        radial-gradient(circle at 100% 100%, var(--color-fg-alt) 0%, var(--color-surface-alt) 25%);
-}
-
-.work-form.open { transform: scale(1); }
-
-.work-form .input-elem .err-msg {
-    padding-left: 12px;
-    color: var(--color-state-red);
-    transition:
-        display 0.4s,
-        opacity 0.4s 100ms;
-}
-
-.work-form .btn { border: 1px solid var(--color-fg-main); }
-
-/* ----- SUCCESS PAGE SPECIFIC ----- */
-
-.success-page {
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) scale(0);
-    background:
-        radial-gradient(circle at 0% 0%, var(--color-state-green) 0%, var(--color-surface-alt) 20%),
-        radial-gradient(circle at 100% 100%, var(--color-state-green) 0%, var(--color-surface-alt) 25%);
-}
-
-.success-page .symbol {
-    background-color: var(--color-state-green);
-    border-radius: 50%;
-    padding: 12px;
-}
-
-.success-page .btn { background-color: var(--color-state-green); }
-.success-page.open { transform: translate(-50%, -50%) scale(1); }
 
 /* ================================================== */
 /* & RESPONSIVENESS */

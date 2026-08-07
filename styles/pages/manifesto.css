@@ -64,11 +64,6 @@
     );
 }
 
-.code .quadrant {
-    border: 1px solid var(--color-border-light);
-    background-color: var(--color-surface-alt);
-}
-
 /* ================================================== */
 /* VISION */
 /* ================================================== */
@@ -76,20 +71,6 @@
 .vision .h3 {
     max-width: 568px;
     text-wrap: balance;
-}
-
-/* ================================================== */
-/* MOMENTUM */
-/* ================================================== */
-
-.momentum .quadrant {
-    animation: bgGlow 5s cubic-bezier(0.7,0.1,0.5,0.9) infinite;
-    
-    background: radial-gradient(
-        circle at 0% 100%,
-        var(--c) 0%,
-        var(--color-surface-alt) var(--end)
-    );
 }
 
 /* ================================================== */

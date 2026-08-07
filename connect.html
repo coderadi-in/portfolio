@@ -16,6 +16,8 @@
     <title>Connect &bull; coderadi</title>
 
     <link rel="stylesheet" href="styles/utility.css">
+    <link rel="stylesheet" href="styles/header.css">
+    <link rel="stylesheet" href="styles/form.css">
     <link rel="stylesheet" href="styles/pages/connect.css">
 </head>
 
@@ -24,7 +26,7 @@
         <div class="custom-cursor"></div>
     </div>
 
-    <header class="header w-full">
+    <header class="header w-full inverted-element">
         <section class="section p-20 grid cols-3">
             <div class="menu-btn link row gap-12 w-fit">
                 <div class="menu-illustration column gap-4">
@@ -46,7 +48,7 @@
         </section>
     </header>
 
-    <nav class="nav">
+    <nav class="nav inverted-element">
         <section class="section p-20 column h-sb">
             <div class="spare-element"></div>
 
@@ -61,7 +63,7 @@
     </nav>
 
     <main class="main bg-main" id="main">
-        <section class="hero" id="hero">
+        <section class="hero inverted-element" id="hero">
             <section class="section p-48 column h-en gap-24">
                 <div class="text-content column gap-4">
                     <h1 class="h1">You've arrived at the right silence</h1>
@@ -75,7 +77,7 @@
             </section>
         </section>
 
-        <section class="signal" id="choose-signal">
+        <section class="signal theme-inverted" id="choose-signal">
             <section class="section p-48 column gap-48">
                 <div class="head column center text-center gap-4">
                     <span class="mini uppercase text-muted">Choose your signal</span>
@@ -101,7 +103,7 @@
             </section>
         </section>
 
-        <section class="covenant bg-card" id="covenant">
+        <section class="covenant bg-card inverted-element" id="covenant">
             <section class="section p-48 column h-center gap-16">
                 <h1 class="h1">A Quiet Covenant</h1>
 
@@ -129,7 +131,7 @@
             </section>
         </section>
 
-        <section class="voice" id="your-voice-here">
+        <section class="voice theme-inverted" id="your-voice-here">
             <section class="section p-48 grid cols-auto-400 gap-32">
                 <div class="left-section column gap-16">
                     <h1 class="h1">Your voice, here</h1>
@@ -160,7 +162,13 @@
                             <span class="mini err-msg fw-500 hidden"></span>
                         </div>
 
-                        <button class="btn fl w-full rounded-16 ph-24 pv-16 uppercase disabled">Send Your Thoughts</button>
+                        <div class="input-elem gap-4 column">
+                            <input type="tel" id="challengePhone" class="input" placeholder="Your Phone Number">
+                            <span class="mini err-msg fw-500 hidden"></span>
+                        </div>
+
+                        <button class="btn fl w-full rounded-16 ph-24 pv-16 uppercase disabled send inverted-element">Send Your
+                            Thoughts</button>
                     </div>
                 </section>
             </section>
@@ -177,11 +185,13 @@
             </div>
         </section>
 
-        <section class="last h-screen" id="goodbye-after-coffee">
+        <section class="last inverted-element h-screen" id="goodbye-after-coffee">
             <section class="section p-48 column gap-24 h-center">
                 <h1 class="h1">Before you go</h1>
-                <p class="para">Whether we speak today or months from now, thank you for taking the time to explore my work.</p>
-                <p class="para">I hope you leave with at least one new idea, one new perspective, or the confidence to keep building what matters.</p>
+                <p class="para">Whether we speak today or months from now, thank you for taking the time to explore my
+                    work.</p>
+                <p class="para">I hope you leave with at least one new idea, one new perspective, or the confidence to
+                    keep building what matters.</p>
                 <p class="para">Until then,</p>
                 <p class="para">Keep moving forward.</p>
 
@@ -193,8 +203,11 @@
         </section>
     </main>
 
-    <script type="module" src="scripts/utility.js"></script>
     <script type="module" src="scripts/form.js"></script>
+    <script type="module" src="scripts/cursor.js"></script>
+    <script type="module" src="scripts/fadein.js"></script>
+
+    <script type="module" src="scripts/header.js"></script>
     <script type="module" src="scripts/pages/connect.js"></script>
 </body>
 

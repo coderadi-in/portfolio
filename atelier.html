@@ -16,6 +16,8 @@
     <title>Atelier &bull; coderadi</title>
 
     <link rel="stylesheet" href="styles/utility.css">
+    <link rel="stylesheet" href="styles/header.css">
+    <link rel="stylesheet" href="styles/form.css">
     <link rel="stylesheet" href="styles/pages/atelier.css">
 </head>
 
@@ -24,7 +26,7 @@
         <div class="custom-cursor"></div>
     </div>
 
-    <header class="header w-full">
+    <header class="header w-full inverted-element">
         <section class="section p-20 grid cols-3">
             <div class="menu-btn link row gap-12 w-fit">
                 <div class="menu-illustration column gap-4">
@@ -46,7 +48,7 @@
         </section>
     </header>
 
-    <nav class="nav">
+    <nav class="nav inverted-element">
         <section class="section p-20 column h-sb">
             <div class="spare-element"></div>
 
@@ -61,24 +63,24 @@
     </nav>
 
     <main class="main bg-main" id="main">
-        <section class="hero" id="hero">
+        <section class="hero inverted-element" id="hero">
             <section class="section p-48 column h-en gap-24">
                 <div class="head column gap-4">
                     <span class="mini uppercase text-muted">atelier</span>
                     <h1 class="h1">work &amp; crafts</h1>
                 </div>
 
-                <p class="para text-muted">I've worked on a plenty of projects, here're I've listed some of the key
+                <p class="para text-muted">I've worked on a plenty of projects, here I've listed some of the key
                     artifacts that
                     helped me learn critical skills and <span class="text-normal">software architecture</span>, also
-                    <span class="text-normal">shaping the future vision of mine</span>.
+                    <span class="text-normal">shaping my future vision</span>.
                 </p>
 
                 <a href="#artifacts" class="link btn rounded-full ph-24 pv-12 uppercase">Explore artifacts</a>
             </section>
         </section>
 
-        <section class="artifacts" id="artifacts">
+        <section class="artifacts theme-inverted" id="artifacts">
             <section class="section p-48 column gap-24">
                 <h1 class="h1">Key Artifacts</h1>
 
@@ -96,7 +98,7 @@
 
         <hr class="divider">
 
-        <section class="artifact echo" id="echo">
+        <section class="artifact echo inverted-element" id="echo">
             <section class="section p-48 grid gap-24">
                 <img src="/assets/images/echo.webp" alt="ECHO AI" class="img rounded-16">
 
@@ -110,10 +112,13 @@
                         <p class="para text-muted">I've started this project with the core motive to learn about AI
                             integration, system security, and UX. And in about 30 days, it resulted <span
                                 class="text-normal">THE ECHO AI</span>. This app generates high-quality captions and
-                            headlines for products to list on<span class="text-normal">e-commerce applications and
+                            headlines for products to list on <span class="text-normal">e-commerce applications and
                                 social media</span>.</p>
 
-                        <a href="https://auvora-echo.coderadi.in" class="link btn fl rounded-full ph-24 pv-16 uppercase">Discover now</a>
+                        <a href="https://auvora-echo.coderadi.in" class="link btn icon-ot rounded-full ph-24 pv-16 uppercase">
+                            <span class="text">Discover now</span>
+                            <span class="symbol">arrow_outward</span>
+                        </a>
                     </div>
                 </div>
 
@@ -142,73 +147,14 @@
 
         <hr class="divider">
 
-        <!-- <section class="system" id="system">
-            <section class="section p-48 column gap-48">
-                <div class="head column gap-4">
-                    <h1 class="h1">the system, deconstructed</h1>
-                    <p class="para">Here's the complete blueprint of each project I build, from problem definition to
-                        final experience.</p>
-                </div>
-
-                <div class="body grid cols-auto-400 gap-20">
-                    <div class="stages h-fit column gap-20">
-                        <div class="stage p-16 rounded-16 column gap-8" id="problem-stage" style="--s: 12.5%">
-                            <h3 class="h3 fw-500">Problem</h3>
-                            <p class="para">Defining the core problem to solve, or the core motive behind the project.</p>
-                        </div>
-                        
-                        <div class="stage p-16 rounded-16 column gap-8" id="insights-stage" style="--s: 25%">
-                            <h3 class="h3 fw-500">Insights</h3>
-                            <p class="para">Collect just-enough information allowing me to start the project properly.</p>
-                        </div>
-                        
-                        <div class="stage p-16 rounded-16 column gap-8" id="sketch-stage" style="--s: 37.5%">
-                            <h3 class="h3 fw-500">Early sketches</h3>
-                            <p class="para">Sketching-out the system on blank paper, trimming out low-value features.</p>
-                        </div>
-                        
-                        <div class="stage p-16 rounded-16 column gap-8" id="architecture-stage" style="--s: 50%">
-                            <h3 class="h3 fw-500">Architecture</h3>
-                            <p class="para">Designing the final foundational architecture for the system to work on.</p>
-                        </div>
-                        
-                        <div class="stage p-16 rounded-16 column gap-8" id="prototype-stage" style="--s: 62.5%">
-                            <h3 class="h3 fw-500">Prototype</h3>
-                            <p class="para">Building an usable prototype of the system, the first visible result.</p>
-                        </div>
-                        
-                        <div class="stage p-16 rounded-16 column gap-8" id="flow-stage" style="--s: 75%">
-                            <h3 class="h3 fw-500">System flow</h3>
-                            <p class="para">Checking and tweaking the system flow to create a memorable UX.</p>
-                        </div>
-                        
-                        <div class="stage p-16 rounded-16 column gap-8" id="experience-stage" style="--s: 85.5%">
-                            <h3 class="h3 fw-500">Final Experience</h3>
-                            <p class="para">Updating features to enhance the final working experience of the system.</p>
-                        </div>
-                        
-                        <div class="stage p-16 rounded-16 column gap-8" id="result-stage" style="--s: 100%">
-                            <h3 class="h3 fw-500">Results</h3>
-                            <p class="para">Shipping the final results, a system engineered perfectly for a purpose.</p>
-                        </div>
-                    </div>
-
-                    <div class="images column gap-20">
-                        <img src="assets/images/desktop/hero.webp" alt="TEMPORARY IMAGE" class="img">
-                        <img src="assets/images/desktop/hero.webp" alt="TEMPORARY IMAGE" class="img">
-                    </div>
-                </div>
-            </section>
-        </section> -->
-
-        <section class="handshake h-screen" id="handshake">
+        <section class="handshake inverted-element h-screen" id="handshake">
             <section class="section p-48 column center text-center gap-12">
                 <div class="head column gap-4">
                     <span class="mini uppercase text-muted">The builder's handshake</span>
                     <h2 class="h2">Let's transform your problem in my atelier</h2>
                 </div>
 
-                <button class="btn icon-fl rounded-full ph-24 pv-12 uppercase" popovertarget="challengeForm">
+                <button class="btn icon-ot rounded-full ph-24 pv-12 uppercase" popovertarget="challengeForm">
                     <span class="text">Share your problem</span>
                     <span class="symbol">handshake</span>
                 </button>
@@ -276,8 +222,11 @@
         </section>
     </main>
 
-    <script type="module" src="scripts/utility.js"></script>
     <script type="module" src="scripts/form.js"></script>
+    <script type="module" src="scripts/cursor.js"></script>
+    <script type="module" src="scripts/fadein.js"></script>
+    
+    <script type="module" src="scripts/header.js"></script>
 </body>
 
 </html>

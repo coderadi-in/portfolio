@@ -40,8 +40,9 @@
     position: relative;
     z-index: 0;
     background: transparent;
-    border: 2px solid var(--color-accent-main);
+    border: 2px solid var(--color-fg-main);
     backdrop-filter: blur(4px);
+    transition: color 0.5s;
 }
 
 .hero .btn::before {
@@ -52,10 +53,10 @@
     border-radius: 50px;
     clip-path: circle(20% at 0% 100%);
     transition: all 0.5s;
-    background-color: var(--color-accent-main);
+    background-color: var(--color-fg-main);
 }
 
-.hero .btn:hover { color: var(--color-text-main); }
+.hero .btn:hover { color: var(--color-bg-main); }
 .hero .btn:hover::before { clip-path: circle(150% at 0% 100%); }
 
 /* ================================================== */
@@ -77,16 +78,6 @@
 /* ARTIFACT */
 /* ================================================== */
 
-.artifact {
-    animation: bgGlow 6s cubic-bezier(0.7,0.1,0.5,0.9) infinite;
-
-    background: radial-gradient(
-        circle at 0% 0%,
-        #2364AA 0%,
-        var(--color-bg-main) var(--end)
-    );
-}
-
 .artifact .grid {
     grid-template-areas:
         "image head"
@@ -107,30 +98,17 @@
 .artifact .point .fw-500 { color: var(--c); }
 
 /* ================================================== */
-/* SYSTEM */
-/* ================================================== */
-
-.system .body .stage {
-    background: linear-gradient(
-        315deg,
-        var(--color-accent-main) 0%,
-        transparent var(--s)
-    );
-}
-
-/* ================================================== */
 /* HANDSHAKE */
 /* ================================================== */
 
 .handshake {
-    animation: bgGlow 6s cubic-bezier(0.7,0.1,0.5,0.9) infinite;
     background: radial-gradient(
-        circle at 100% 100%,
-        var(--color-accent-main) 0%,
-        var(--color-bg-main) var(--end)
+        circle at 0% 0%,
+        var(--color-bg-main) 25%,
+        var(--color-bg-card) 70%
     );
 }
-.handshake .social .btn { background-color: var(--color-text-main); }
+.handshake .social .btn { background-color: var(--color-fg-main); }
 
 /* ================================================== */
 /* POPOVERS */
@@ -166,7 +144,7 @@
         opacity 0.4s 100ms;
 }
 
-.work-form .btn { border: 1px solid var(--color-accent-main); }
+.work-form .btn { border: 1px solid var(--color-fg-main); }
 
 /* ----- SUCCESS PAGE SPECIFIC ----- */
 

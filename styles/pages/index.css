@@ -119,6 +119,8 @@
     background-position: center;
 }
 
+.featured .content { background-color: var(--color-surface-alt); }
+
 /* ================================================== */
 /* PERSONA */
 /* ================================================== */

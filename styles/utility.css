@@ -17,7 +17,7 @@
     --color-fg-card: #E7DCCC;
     
     --color-surface-main: #0F111557;
-    --color-surface-alt: #1A1D234D;
+    --color-surface-alt: #FFF9EF4D;
     
     --color-border-dark: #2A2D3557;
     --color-border-light: #FFFFFF1A;
@@ -310,7 +310,7 @@ html {
 .fw-600 { font-weight: 600 !important; }
 .fw-700 { font-weight: 700 !important; }
 
-.text-muted { color: var(--color-fg-card); }
+.text-muted { color: #84848D; }
 .text-normal { color: var(--color-fg-main); }
 .spacing-2 { letter-spacing: 2px; }
 
@@ -448,7 +448,7 @@ textarea.input {
     transition: background-color 0.3s;
 }
 .fl:hover {
-    background-color: var(--color-fg-alt);
+    background-color: var(--color-fg-card);
 }
 
 .icon-ot {

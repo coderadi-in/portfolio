@@ -312,6 +312,7 @@ html {
 
 .text-muted { color: #84848D; }
 .text-normal { color: var(--color-fg-main); }
+.text-inverted { color: var(--color-bg-main); }
 .spacing-2 { letter-spacing: 2px; }
 
 .fn-inter { font-family: "Inter", sans-serif !important; }

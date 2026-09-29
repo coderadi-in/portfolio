@@ -1,0 +1,13 @@
+/* ================================================== */
+/* HERO */
+/* ================================================== */
+
+.hero {
+    background-image: url('/assets/images/me.webp');
+    background-size: cover;
+    background-position: center;
+    height: 100dvh;
+    transition: height 0.3s;
+}
+
+.hero .section { padding-bottom: 96px !important; }

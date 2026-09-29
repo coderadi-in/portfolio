@@ -1,0 +1,51 @@
+/* ================================================== */
+/* HEADER */
+/* ================================================== */
+
+.header { 
+    position: fixed;
+    z-index: 20;
+}
+
+.header .section {
+    background-color: var(--color-surface-main);
+    backdrop-filter: blur(4px);
+}
+
+.header .menu-btn { transition: gap 0.3s; }
+.header .menu-btn .line {
+    width: 20px;
+    height: 2px;
+    background-color: var(--color-fg-main);
+    transition: transform 0.3s ease-out, 0.3s;
+    margin: -1px;
+}
+
+.header .menu-btn.active { gap: 0; }
+.header .menu-btn.active .line:first-child { transform: rotate(45deg); }
+.header .menu-btn.active .line:last-child { transform: rotate(-45deg); }
+
+/* ================================================== */
+/* NAV */
+/* ================================================== */
+
+.nav {
+    position: fixed;
+    inset: 12px;
+    max-width: 768px;
+    width: 80%;
+    z-index: 10;
+    background-color: var(--color-surface-main);
+    backdrop-filter: blur(4px);
+    transform: scale(.9);
+    transform-origin: top left;
+    opacity: 0;
+    pointer-events: none;
+    transition: transform 0.3s, opacity 0.3s;
+}
+
+.nav.active {
+    transform: scale(1);
+    opacity: 1;
+    pointer-events: auto;
+}

@@ -9,20 +9,7 @@ import { createSectionObserver } from '../fade.js';
 // ==================================================
 
 const sections = document.querySelectorAll('.section');
-const observer = createSectionObserver();
-
-// ==================================================
-// TYPING ANIMATION
-// ==================================================
-
-const typingAnimation = new Typed('#mainHeading', {
-    strings: ["Developer", "Entrepreneur", "Reader"],
-    typeSpeed: 50,
-    backSpeed: 20,
-    backDelay: 1200,
-    loop: true,
-    showCursor: false,
-});
+const observer = createSectionObserver(0);
 
 // ==================================================
 // EVENT LISTENERS

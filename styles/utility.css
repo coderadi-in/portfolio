@@ -60,6 +60,11 @@
 /* KEYFRAMES */
 /* ================================================== */
 
+@keyframes loaderAnimation {
+    0%, 100% { stroke-dashoffset: 500; }
+    50% { stroke-dashoffset: 0; }
+}
+
 @keyframes animatedArrowAnimation {
     0%, 100% { transform: translateY(0) }
     50% { transform: translateY(-48px) }
@@ -137,6 +142,10 @@ html {
 }
 
 .container { overflow: hidden; }
+.hero .section {
+    padding-bottom: 96px;
+    padding-top: 88px;
+}
 
 @media (max-width: 568px) {
     .section.p-48 { padding: 20px !important; }

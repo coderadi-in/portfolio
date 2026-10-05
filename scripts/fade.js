@@ -1,15 +1,9 @@
 // ==================================================
-// REFERENCES
-// ==================================================
-
-const sections = document.querySelectorAll('.section');
-
-// ==================================================
 // FUNCTIONS
 // ==================================================
 
-// * FUNCTION TO START THE SECTION OBSERVER
-function startSectionObserver() {
+// * FUNCTION TO CREATE AN SECTION OBSERVER
+export function createSectionObserver(threshold = 0.2) {
     const observer = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -18,17 +12,8 @@ function startSectionObserver() {
             }
         });
     }, {
-        threshold: 0.2,
+        threshold: threshold,
     });
 
-    sections.forEach(section => { observer.observe(section);});
-
-    return observer.disconnect;
+    return observer;
 }
-
-// ==================================================
-// EVENT LISTENERS
-// ==================================================
-
-// & INITIAL DISPLAY SETTINGS
-document.addEventListener('DOMContentLoaded', startSectionObserver);

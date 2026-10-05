@@ -1,0 +1,32 @@
+/* ================================================== */
+/* LOADER */
+/* ================================================== */
+
+.loader {
+    position: fixed;
+    z-index: 99;
+    inset: 0;
+    background-color: var(--color-bg-main);
+    pointer-events: none;
+    animation: Hide 1s 4.2s forwards;
+}
+
+.loader svg { width: min(768px, 70%); }
+
+.loader svg path {
+    fill: transparent;
+    stroke: var(--color-fg-main);
+    stroke-width: 2px;
+    stroke-dasharray: 500;
+    stroke-dashoffset: 0;
+    animation: revealText 4s ease-in forwards;
+}
+
+@keyframes revealText {
+    0%, 100% { stroke-dashoffset: 500; }
+    50% { stroke-dashoffset: 0; }
+}
+
+@keyframes Hide {
+    to { opacity: 0; }
+}

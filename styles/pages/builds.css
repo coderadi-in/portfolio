@@ -1,0 +1,65 @@
+/* ================================================== */
+/* HERO */
+/* ================================================== */
+
+.hero {
+    position: relative;
+    z-index: 0;
+}
+
+.hero .bg {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    object-fit: cover;
+    object-position: center;
+    filter: blur(2px);
+}
+
+/* ================================================== */
+/* PROJECTS LIST */
+/* ================================================== */
+
+.project-list .project-card {
+    aspect-ratio: 4 / 5;
+    position: relative;
+    text-wrap: balance;
+}
+
+.project-list .project-card .bg {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    object-fit: cover;
+    background-position: center;
+    filter: blur(2px);
+    transition: transform 0.5s cubic-bezier(0.7,0.1,0.5,0.9);
+}
+
+.project-list .project-card:hover .bg { transform: scale(1.1); }
+
+/* ================================================== */
+/* ENQUIRE */
+/* ================================================== */
+
+.enquire {
+    position: relative;
+    z-index: 0;
+}
+
+.enquire .bg {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+}
+
+.enquire .right-section {
+    aspect-ratio: 4 / 5;
+}
+
+.enquire .input {
+    background-color: transparent;
+    border: none;
+    border-bottom: 2px solid var(--color-border);
+    border-radius: 0;
+}
